@@ -1,0 +1,243 @@
+:root {
+  --bg-dark: #05050a;
+  /* Darker background for neon contrast */
+  --bg-card: rgba(255, 255, 255, 0.02);
+  --bg-card-hover: rgba(255, 255, 255, 0.05);
+  --text-main: #ffffff;
+  --text-muted: #b0b0c0;
+  --primary: #6366f1;
+  /* Neon Indigo */
+  --primary-glow: 0 0 20px rgba(99, 102, 241, 0.6);
+  --accent: #06b6d4;
+  /* Neon Cyan */
+  --accent-glow: 0 0 20px rgba(6, 182, 212, 0.6);
+  --gradient-main: linear-gradient(135deg, #6366f1, #06b6d4);
+  --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+  --radius-md: 16px;
+  --radius-lg: 32px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100vw;
+  max-width: 100vw;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  line-height: 1.6;
+  position: relative;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+
+ul {
+  list-style: none;
+}
+
+/* Theme Classes */
+body.theme-sunset {
+  --primary: #f43f5e;
+  --primary-glow: 0 0 20px rgba(244, 63, 94, 0.6);
+  --accent: #f59e0b;
+  --accent-glow: 0 0 20px rgba(245, 158, 11, 0.6);
+  --gradient-main: linear-gradient(135deg, #f43f5e, #f59e0b);
+}
+
+body.theme-matrix {
+  --primary: #00ff41;
+  --primary-glow: 0 0 20px rgba(0, 255, 65, 0.6);
+  --accent: #008f11;
+  --accent-glow: 0 0 20px rgba(0, 143, 17, 0.6);
+  --gradient-main: linear-gradient(135deg, #00ff41, #008f11);
+  --font-main: 'Courier New', monospace;
+}
+
+body.theme-party {
+  animation: rainbow-bg 5s linear infinite;
+}
+
+@keyframes rainbow-bg {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+/* Neon Utilities */
+.neon-text {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.neon-border {
+  box-shadow: 0 0 15px rgba(99, 102, 241, 0.3), inset 0 0 15px rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.5);
+}
+
+.circle-shape {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: -1;
+  opacity: 0.4;
+}
+
+.app-container {
+  width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+main {
+  width: 100%;
+  position: relative;
+}
+
+.container {
+  max-width: 1280px;
+  /* Increased for better breathing room */
+  margin: 0 auto;
+  padding: 0 2rem;
+  width: 100%;
+}
+
+section {
+  position: relative;
+  z-index: 1;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 32px;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background: var(--gradient-main);
+  color: white;
+  box-shadow: var(--primary-glow);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 0 30px rgba(99, 102, 241, 0.8);
+  border-color: white;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--text-main);
+}
+
+/* Header */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(10, 10, 18, 0.8);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 1rem 0;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: white;
+}
+
+.logo span {
+  color: var(--accent);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-links a {
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.nav-links a:hover {
+  color: white;
+}
+
+/* Footer */
+.footer {
+  padding: 60px 0 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  margin-top: 100px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+
+.footer-col h4 {
+  color: white;
+  margin-bottom: 1.5rem;
+}
+
+.footer-col ul li {
+  margin-bottom: 0.8rem;
+}
+
+.footer-col ul li a {
+  color: var(--text-muted);
+}
+
+.footer-col ul li a:hover {
+  color: var(--accent);
+}
+
+.footer-bottom {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
